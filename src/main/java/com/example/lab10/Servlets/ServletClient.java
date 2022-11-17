@@ -5,18 +5,19 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-
-@WebServlet(name = "InicioServlet", urlPatterns = {"/InicioServlet",""})
-public class InicioServlet extends HttpServlet {
+@WebServlet(name = "ServletClient", value = "/ServletClient")
+public class ServletClient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
-        requestDispatcher.forward(request, response);
+
+
+
+
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }*/
+    }
 }

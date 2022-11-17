@@ -4,11 +4,7 @@ import com.example.lab10.Beans.Credentials;
 
 import java.sql.*;
 
-public class ValidacionDao extends BaseDao {
-
-
-
-
+public class DatosDao extends BaseDao {
 
 
     public Credentials buscarUsuario(String numero_documento, String password) {
@@ -48,6 +44,23 @@ public class ValidacionDao extends BaseDao {
     }
 
 
+    public void createCredentialCliente(String numero_documento, String password) throws SQLException {
+
+        String sql = "INSERT INTO credentials (nro_documento,password,hashed_password,tipo_usuario) "
+                + "VALUES (?,?,sha2(?,256),2)";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+            pstmt.setString(1, numero_documento);
+            pstmt.setString(2, password);
+            pstmt.setString(3, password);
+
+
+            pstmt.executeUpdate();
+        }
+    }
+
+
         /*public Credentials buscarPorId(int nro_documento) {
         Clientes cliente = null;
 
@@ -75,21 +88,7 @@ public class ValidacionDao extends BaseDao {
     }*/
 
 
-    public void createCredentialCliente(String numero_documento, String password) throws SQLException {
 
-        String sql = "INSERT INTO credentials (nro_documento,password,hashed_password,tipo_usuario) "
-                + "VALUES (?,?,sha2(?,256),2)";
-
-        try (Connection conn = this.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);) {
-            pstmt.setString(1, numero_documento);
-            pstmt.setString(2, password);
-            pstmt.setString(3, password);
-
-
-            pstmt.executeUpdate();
-        }
-    }
 
 
 
