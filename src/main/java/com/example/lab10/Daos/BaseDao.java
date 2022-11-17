@@ -13,7 +13,7 @@ public class BaseDao{
             throw new RuntimeException(e);
         }
         String user = "root";
-        String pass = "123456";
+        String pass = "root";
         String url = "jdbc:mysql://localhost:3306/bi_corp_business";
         return DriverManager.getConnection(url, user, pass);
     }
