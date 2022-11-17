@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 
@@ -8,7 +10,7 @@
 
     <meta charset="utf-8">
 
-    <title> Formulario de Acceso </title>
+    <title> Inicio de Sesión </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -38,8 +40,9 @@
     <div id="central">
         <div id="login">
             <div class="titulo">
-                Bienvenido
+                ¡Bienvenido al Banco del Perú!
             </div>
+
             <form id="loginform">
                 <input type="text" name="usuario" placeholder="Usuario" required>
 
@@ -51,9 +54,6 @@
                 <a href="#">¿Perdiste tu contraseña?</a>
                 <a href="#">¿No tienes Cuenta? Registrate</a>
             </div>
-        </div>
-        <div class="inferior">
-            <a href="#">Volver</a>
         </div>
     </div>
 </div>
