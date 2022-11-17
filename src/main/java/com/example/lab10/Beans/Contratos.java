@@ -5,6 +5,9 @@ public class Contratos {
     private int idCliente;
     private String divisa;
 
+    private int estado;
+    private int mesesEnEseEstado;
+
     public String getDivisa() {
         return divisa;
     }
@@ -12,9 +15,6 @@ public class Contratos {
     public void setDivisa(String divisa) {
         this.divisa = divisa;
     }
-
-    private int estado;
-    private int mesesEnEseEstado;
 
 
     public String getNroDeContrato() {

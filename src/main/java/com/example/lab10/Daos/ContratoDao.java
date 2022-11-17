@@ -8,17 +8,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ListarContratos extends BaseDao{
-    public ArrayList<Contratos> listacontratos() {
-        ArrayList<Contratos> listascontratos = new ArrayList<>();
-        String sql = "SELECT count(*), client_nro_id from jm_cotr_bis group by client_nro_id";
+public class ContratoDao extends BaseDao{
+    public ArrayList<Contratos> listaContratos() {
+
+        ArrayList<Contratos> lista = new ArrayList<>();
+        String sql = "SELECT * from jm_cotr_bis where client_nro_id = ?";
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet resultSet = stmt.executeQuery(sql)) {
 
+
+
             while (resultSet.next()) {
                 Contratos contratos = new Contratos();
+
+
                 contratos.(resultSet.getInt(1));
                 newUser.setNombre(resultSet.getString(2));
                 newUser.setApellido(resultSet.getString(3));
