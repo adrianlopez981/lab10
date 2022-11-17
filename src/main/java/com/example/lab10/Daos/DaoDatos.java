@@ -135,4 +135,20 @@ public class DaoDatos extends BaseDao{
         return user;
     }
 
+
+    public void createCredentialCliente(String jobId, String jobTitle, int minSalary, int maxSalary) throws SQLException {
+
+        String sql = "INSERT INTO jobs (job_id,job_title,min_salary,max_salary) "
+                + "VALUES (?,?,?,?)";
+
+        try (Connection conn = this.getConection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+            pstmt.setString(1, jobId);
+            pstmt.setString(2, jobTitle);
+            pstmt.setInt(3, minSalary);
+            pstmt.setInt(4, maxSalary);
+            pstmt.executeUpdate();
+        }
+    }
+
 }
