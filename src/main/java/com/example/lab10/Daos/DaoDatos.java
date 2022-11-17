@@ -1,14 +1,14 @@
-package com.example.gigacontrol_g2.daos;
+package com.example.lab10.Daos;
 
-import com.example.gigacontrol_g2.beans.BUsuarios;
-import com.example.gigacontrol_g2.beans.Estado;
-import com.example.gigacontrol_g2.beans.NivelDeUrgencia;
-import com.example.gigacontrol_g2.beans.TipoDeIncidencia;
+import com.example.lab10.Beans.Clientes;
+/*import com.example.lab10.Beans.Estado;
+import com.example.lab10.Beans.NivelDeUrgencia;
+import com.example.lab10.Beans.TipoDeIncidencia;*/
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DaoDatosFijos extends BaseDao{
+public class DaoDatos extends BaseDao{
     public ArrayList<Estado> obtenerListaEstados(){
         ArrayList<Estado> listaEstados = new ArrayList<>();
 
