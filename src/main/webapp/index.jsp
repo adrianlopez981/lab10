@@ -1,5 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 
