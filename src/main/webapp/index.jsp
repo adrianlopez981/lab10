@@ -1,5 +1,12 @@
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page import="com.example.lab10.Beans.Clientes"%>
+
+
+
+
+
 <!doctype html>
 
 <!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
@@ -44,9 +51,9 @@
 
                     <form id="loginform" method="post" class="form-signin" action="<%=request.getContextPath()%>/ServletInitio">
 
-                        <input type="numbers" class="form-control" id="codigo" name="codigo" placeholder="codigo" required >
+                        <input type="text"  id="codigo" name="codigo" placeholder="codigo" required >
 
-                        <input type="password" class="form-control" placeholder="password" name="password" required>
+                        <input type="password" placeholder="password" name="password" required>
 
                         <button type="submit" title="Ingresar" name="Ingresar">Login</button>
 

@@ -1,11 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Angie
-  Date: 17/11/2022
-  Time: 11:28
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.example.lab10.Beans.Clientes"%>
+<%@ page import="com.example.lab10.Beans.Credentials"%>
+<jsp:useBean id="listaNoCredentials" scope="request" type="java.util.ArrayList<com.example.lab10.Beans.Clientes>"/>
+<jsp:useBean id="userlogged" type="com.example.lab10.Beans.Credentials" scope="session"/>
+
 <!doctype html>
 
 <html lang="es">
@@ -47,12 +47,58 @@
                 Crear Cliente
             </div>
 
-            <form id="loginform">
-                <input type="text" name="usuario" placeholder="Nro. de Documento" required>
+            <form action="<%=request.getContextPath()%>/ServletAdmin?action=guardar" method="post">
+<%--                <input type="text" name="usuario" placeholder="Nro. de Documento" required>--%>
 
-                <input type="password" placeholder="Contraseña" name="password" required>
 
-                <button type="submit" title="Ingresar" name="Ingresar">Crear</button>
+                <div class="input-group mb-3">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="codigo_elegir" name="codigo_elegir" required>
+                        <option selected>Elegir...</option>
+                        <%
+                            for( Clientes c: listaNoCredentials){%>
+
+                        <option value="<%=c.getNumeroDocumento()%>"><%=c.getNumeroDocumento()%></option>
+                        <%}%>
+                    </select>
+                </div>
+
+
+
+
+
+                <div class="col-auto">
+                    <input type="text" id="inputpassword" placeholder="Contraseña" class="form-control"
+                           aria-describedby="passwordHelpInline" name="password" required>
+                </div>
+
+
+
+
+                <div class="d-flex justify-content-center">
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-footer">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary">
+                                            Confirmar
+                                            >
+                                        </button>
+                                        <br>
+                                        <a class="btn btn-primary"
+                                           href="<%=request.getContextPath()%>/ServletAdmin?action=Inicio"
+                                           role="button"
+                                           style="margin-left: 0rem; background-color:#D12C22 ; border: none;">
+                                            Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
 
         </div>

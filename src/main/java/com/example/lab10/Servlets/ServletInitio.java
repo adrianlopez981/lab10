@@ -3,6 +3,7 @@ package com.example.lab10.Servlets;
 
 
 import java.io.*;
+import java.util.ArrayList;
 
 import com.example.lab10.Beans.Clientes;
 import com.example.lab10.Beans.Credentials;
@@ -61,8 +62,8 @@ public class ServletInitio extends HttpServlet {
         Credentials credenciales = daoDatos.buscarUsuario(codigo,password);
 
 
-        Clientes cliente = daoCliente.buscarCliente(Integer.parseInt(credenciales.getNumeroDocumento()));
-        System.out.println(cliente.getNumeroDocumento());
+        /*Clientes cliente = daoCliente.buscarCliente(Integer.parseInt(credenciales.getNumeroDocumento()));
+        System.out.println(cliente.getNumeroDocumento());*/
 
 
         if(credenciales !=null){
@@ -71,7 +72,11 @@ public class ServletInitio extends HttpServlet {
 
 
             if (credenciales.getTipoUsuario()==2){
+
+                ArrayList<Clientes> lista = daoCliente.listarClientesNoCredentials();
+
                 response.sendRedirect("ServletAdmin?action=Inicio");
+                session.setAttribute("listaNoCredentials",lista);
             }else if (credenciales.getTipoUsuario()==1){
                 response.sendRedirect("Cliente");
             }
