@@ -63,12 +63,6 @@
                         <% } %>
                     </form>
 
-
-
-                    <div class="pie-form">
-                        <a href="#">¿Perdiste tu contraseña?</a>
-                        <a href="#">¿No tienes Cuenta? Registrate</a>
-                    </div>
                 </div>
             </div>
         </div>

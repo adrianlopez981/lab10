@@ -5,8 +5,8 @@ import com.example.lab10.Beans.Credentials;
 import com.example.lab10.Daos.ClienteDao;
 import com.example.lab10.Daos.DatosDao;
 import jakarta.servlet.*;
-import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,9 +22,6 @@ public class ServletAdmin extends HttpServlet {
 
         ClienteDao clienteDao = new ClienteDao();
         ArrayList<Clientes> lista = clienteDao.listarClientesNoCredentials();
-
-
-
 
         switch (action) {
             case "Inicio":

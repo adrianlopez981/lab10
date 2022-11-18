@@ -1,18 +1,20 @@
 package com.example.lab10.Servlets;
 
 
-
-import java.io.*;
-import java.util.ArrayList;
-
 import com.example.lab10.Beans.Clientes;
 import com.example.lab10.Beans.Credentials;
 import com.example.lab10.Daos.ClienteDao;
 import com.example.lab10.Daos.DatosDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 
@@ -78,7 +80,7 @@ public class ServletInitio extends HttpServlet {
                 response.sendRedirect("ServletAdmin?action=Inicio");
                 session.setAttribute("listaNoCredentials",lista);
             }else if (credenciales.getTipoUsuario()==1){
-                response.sendRedirect("Cliente");
+                response.sendRedirect("ServletCliente?action=");
             }
         }else{
             response.sendRedirect(request.getContextPath() + "ServletInitio?action=LogIn&error");

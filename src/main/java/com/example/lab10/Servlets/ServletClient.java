@@ -3,12 +3,13 @@ package com.example.lab10.Servlets;
 import com.example.lab10.Beans.Clientes;
 import com.example.lab10.Daos.ClienteDao;
 
-
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "ServletClient", value = "/ServletClient")
 public class ServletClient extends HttpServlet {
@@ -17,6 +18,8 @@ public class ServletClient extends HttpServlet {
         String accion = request.getParameter("accion")==null?"listar":request.getParameter("accion");
         RequestDispatcher view;
         ClienteDao cliente = new ClienteDao();
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("Cliente.jsp");
+        requestDispatcher.forward(request, response);
 
 
 
