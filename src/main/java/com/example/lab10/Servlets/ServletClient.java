@@ -2,7 +2,7 @@ package com.example.lab10.Servlets;
 
 import com.example.lab10.Beans.Clientes;
 import com.example.lab10.Daos.ClienteDao;
-import com.sun.security.ntlm.Client;
+
 
 import javax.servlet.*;
 import javax.servlet.http.*;
