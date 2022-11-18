@@ -12,15 +12,17 @@ public class DatosDao extends BaseDao {
 
         Credentials credentials = null;
 
-        String sql = "SELECT * FROM CREDENTIALS WHERE PASSWORD = ? AND NRO_DOCUMENTO = sha2(?,256)";
+        String sql = "SELECT * FROM CREDENTIALS WHERE nro_documento = ? AND hashedPassword = sha2(?,256)";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
+            int numero_documento_int = Integer.parseInt(numero_documento);
 
 
-            pstmt.setString(1, password);
-            pstmt.setString(2, numero_documento);
+
+            pstmt.setString(2, password);
+            pstmt.setInt(1, numero_documento_int);
 
 
             try (ResultSet rs = pstmt.executeQuery();) {
@@ -31,6 +33,8 @@ public class DatosDao extends BaseDao {
                     credentials = new Credentials();
                     credentials.setTipoUsuario(rs.getInt(4));
                     credentials.setNumeroDocumento(rs.getString(1));
+
+
 
 
                     /*credentials = this.buscarPorId(nro_documento);*/
@@ -46,7 +50,7 @@ public class DatosDao extends BaseDao {
 
     public void createCredentialCliente(String numero_documento, String password) throws SQLException {
 
-        String sql = "INSERT INTO credentials (nro_documento,password,hashed_password,tipo_usuario) "
+        String sql = "INSERT INTO credentials (nro_documento,password,hashedPassword,tipoUsuario) "
                 + "VALUES (?,?,sha2(?,256),2)";
 
         try (Connection conn = this.getConnection();
