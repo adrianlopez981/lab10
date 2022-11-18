@@ -18,21 +18,6 @@ public class ServletClient extends HttpServlet {
         RequestDispatcher view;
         ClienteDao cliente = new ClienteDao();
 
-        switch(accion){
-            case("buscar"):
-                String buscar = request.getParameter("nrodocumento");
-                int id = Integer.parseInt(buscar);
-                Clientes lista = cliente.buscarCliente(id);
-                request.setAttribute("ListaClientes",lista);
-                view = request.getRequestDispatcher("/menuHeroes.jsp");
-                view.forward(request,response);
-                break;
-        }
-
-
-
-
-
 
 
 
@@ -40,6 +25,22 @@ public class ServletClient extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String accion = request.getParameter("accion");
+        ClienteDao clientedao = new ClienteDao();
+        RequestDispatcher view;
+
+        switch(accion){
+            case("buscar"):
+                String buscar = request.getParameter("nrodocumento");
+                int id = Integer.parseInt(buscar);
+                Clientes lista = clientedao.buscarCliente(id);
+                request.setAttribute("ListaClientes",lista);
+                view = request.getRequestDispatcher("/buscarCliente.jsp");
+                view.forward(request,response);
+                break;
+
+        }
 
     }
 }
