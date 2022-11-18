@@ -80,7 +80,7 @@ public class ServletInitio extends HttpServlet {
                 response.sendRedirect("ServletAdmin?action=Inicio");
                 session.setAttribute("listaNoCredentials",lista);
             }else if (credenciales.getTipoUsuario()==1){
-                response.sendRedirect("ServletCliente?action=");
+                response.sendRedirect("ServletCliente?action=Inicio");
             }
         }else{
             response.sendRedirect(request.getContextPath() + "ServletInitio?action=LogIn&error");

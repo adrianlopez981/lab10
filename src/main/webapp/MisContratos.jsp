@@ -31,7 +31,7 @@
     <% int i = 1;
         for (Contratos contratos : listaContratos) { %>
     <tr>
-        <td class="text-center" scope="row"> <%=contratos.getNroDeContrato()%></td>
+        <td class="text-center"><%=contratos.getNroDeContrato()%></td>
         <td class="text-center"> <%=contratos.getDivisa()%></td>
         <td class="text-center"><%=contratos.getEstado()%></td>
         <td class="text-center"><%=contratos.getMesesEnEseEstado()%></td>
